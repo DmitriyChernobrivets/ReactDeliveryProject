@@ -1,15 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Card.scss";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import ForSale from "../../../Shared/forSale/forSale";
+import ForSale from "../../Shared/forSale/forSale";
 
 const Card = ({ product }) => {
-  const { _id, description, title, forSale, images, price, stock } = product;
+  console.log(product);
+  const { _id, description, title, forSale, images, price, hot } = product;
 
   return (
     <div className="product-card">
-      {stock && (
+      {hot && (
         <div className="hot-price">
           <span>HOT</span>
         </div>

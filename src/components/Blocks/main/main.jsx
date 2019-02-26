@@ -1,17 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getProducts } from "../../../store/Actions/getProducts";
-
-import Card from "./Card/Card";
+import Card from "../Card/Card";
 import "./main.scss";
 import { Col, Row, Container } from "react-bootstrap";
 
 class Main extends Component {
   componentDidMount() {
-    this.props.getAllProducts();
-    // fetch("/products")
-    //   .then(el => el.json())
-    //   .then(el => console.log(el));
+    const { categories } = this.props.match.params;
+    this.props.getAllProducts(categories);
   }
   render() {
     const { products } = this.props;
@@ -40,7 +37,7 @@ const mapStateToProps = state => {
 
 const mapDeispathToProps = dispatch => {
   return {
-    getAllProducts: () => dispatch(getProducts())
+    getAllProducts: category => dispatch(getProducts(category))
   };
 };
 

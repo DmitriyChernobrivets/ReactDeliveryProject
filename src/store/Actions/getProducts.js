@@ -13,11 +13,11 @@ const getProductsFailure = error => {
   };
 };
 
-export const getProducts = () => {
+export const getProducts = category => {
   return dispatch => {
     axios
-      .get("/notebooks")
-      .then(({ data }) => dispatch(actionProducts(data.notebooks)))
+      .get(`/category/${category}`)
+      .then(({ data }) => console.log(data) || dispatch(actionProducts(data.products)))
       .catch(err => console.log(err) || dispatch(getProductsFailure(err.message)));
   };
 };

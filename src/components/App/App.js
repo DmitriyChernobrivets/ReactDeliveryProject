@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import HeaderComponents from "../Blocks/Header/Header";
 import Main from "../Blocks/main/main";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import CardInfo from "../Blocks/CardInfo/CardInfo";
+// import CardInfo from "../Blocks/CardInfo/CardInfo";
+import Home from "../Blocks/Home/Home";
 // import "./App.scss";
 
 class App extends Component {
@@ -14,8 +15,8 @@ class App extends Component {
           <HeaderComponents />
 
           <Switch>
-            <Route exact path="/" component={Main} />
-            <Route exact path="/:id" component={CardInfo} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/category/:categories" component={Main} />
             {/* <Route path="/login" component={Login} />
             <Route path="/registration" component={Reagistration} /> */}
           </Switch>

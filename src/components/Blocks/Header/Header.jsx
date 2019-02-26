@@ -1,13 +1,21 @@
 import React from "react";
 import "./styles.scss";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-const HeaderComponents = () => (
+const HeaderComponents = props => (
   <header className="header">
+    <div className="left-panel">
+      <div>Just Smile</div>
+    </div>
     <div className="header-left">
-      <Link to="/" className="logo">
-        LOGO
-      </Link>
+      <ul className="menu">
+        {props.categories.map(category => (
+          <li className="menu-item">
+            <Link to={"/category/" + category}>{category}</Link>
+          </li>
+        ))}
+      </ul>
     </div>
     <div className="header-right">
       <div className="header-auth">
@@ -22,4 +30,10 @@ const HeaderComponents = () => (
   </header>
 );
 
-export default HeaderComponents;
+const getState = state => {
+  return {
+    categories: state.categories
+  };
+};
+
+export default connect(getState)(HeaderComponents);

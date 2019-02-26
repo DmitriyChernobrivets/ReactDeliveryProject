@@ -35,10 +35,18 @@ pre {
 
 a {
   background-color: transparent;
-  color: #000;
+
   text-decoration: none;
 }
-
+a,
+body {
+  color: #000;
+}
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+}
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
