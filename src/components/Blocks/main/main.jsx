@@ -11,15 +11,15 @@ class Main extends Component {
     this.props.getAllProducts(categories);
   }
   render() {
-    const { products } = this.props;
+    const { products, match } = this.props;
 
     return (
       <main>
         <Container className="wrapper">
           <Row>
             {products.map(prod => (
-              <Col lg={3} key={prod._id}>
-                <Card product={prod} />
+              <Col xs={12} sm={6} lg={4} key={prod._id}>
+                <Card product={prod} match={match} />
               </Col>
             ))}
           </Row>

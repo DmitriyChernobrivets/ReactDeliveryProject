@@ -1,12 +1,14 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./Card.scss";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import ForSale from "../../Shared/forSale/forSale";
+import RatingStars from "../../Shared/Stars/RatingStars";
+import Details from "../../Shared/Details/Details";
 
-const Card = ({ product }) => {
-  console.log(product);
-  const { _id, description, title, forSale, images, price, hot } = product;
+const Card = ({ product, match }) => {
+  const { _id, description, title, forSale, images, price, hot, rating } = product;
+  const { categories } = match.params;
 
   return (
     <div className="product-card">
@@ -16,37 +18,29 @@ const Card = ({ product }) => {
         </div>
       )}
       <div className="prdouct-image">
-        <Link to={_id}>
+        <Link to={categories + "/" + _id}>
           <img src={images[0]} alt="img" />
         </Link>
       </div>
       <Link to="/" className="product-card-title">
         <span>{title}</span>
       </Link>
-      <div className="review">
-        <Link to="/">
+      <div className="product-card_review">
+        <RatingStars rating={rating} />
+
+        <Link to="/" className="review">
           <span>Add review</span>
         </Link>
       </div>
-      <div className="forsale">
+
+      <Fragment>
         <ForSale forSale={forSale} />
-      </div>
+      </Fragment>
       <Button className="btn product-card-button">
         <span>{price} UAH</span>
       </Button>
       <div className="product-description">
-        <p>
-          <span>Processor: </span>
-          {description.processor}
-        </p>
-        <p>
-          <span>Display: </span>
-          {description.display}
-        </p>
-        <p>
-          <span>memory: </span>
-          {description.memory}
-        </p>
+        <Details description={description} />>
       </div>
     </div>
   );

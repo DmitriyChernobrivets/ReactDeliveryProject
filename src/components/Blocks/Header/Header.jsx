@@ -10,8 +10,8 @@ const HeaderComponents = props => (
     </div>
     <div className="header-left">
       <ul className="menu">
-        {props.categories.map(category => (
-          <li className="menu-item">
+        {props.categories.map((category, idx) => (
+          <li className="menu-item" key={idx}>
             <Link to={"/category/" + category}>{category}</Link>
           </li>
         ))}

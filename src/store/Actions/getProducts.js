@@ -1,4 +1,5 @@
 import axios from "axios";
+// import onError from "./Error";
 
 const actionProducts = payload => {
   return {
@@ -6,18 +7,18 @@ const actionProducts = payload => {
     payload
   };
 };
-const getProductsFailure = error => {
+
+const onError = payload => {
   return {
     type: "GET_PRODUCTS_FAILURE",
-    payload: error
+    error: payload
   };
 };
-
 export const getProducts = category => {
   return dispatch => {
     axios
       .get(`/category/${category}`)
       .then(({ data }) => console.log(data) || dispatch(actionProducts(data.products)))
-      .catch(err => console.log(err) || dispatch(getProductsFailure(err.message)));
+      .catch(err => console.log(err) || dispatch(onError(err.message)));
   };
 };

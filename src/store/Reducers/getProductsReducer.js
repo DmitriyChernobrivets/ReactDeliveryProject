@@ -4,7 +4,6 @@ const initialState = {
 };
 
 const getProductsReducer = (state = initialState, { type, payload }) => {
-  console.log(payload);
   switch (type) {
     case "GET_PRODUCTS":
       return {
@@ -12,7 +11,7 @@ const getProductsReducer = (state = initialState, { type, payload }) => {
         products: [...payload],
         error: null
       };
-    case "GET_PRODUCTS_FAILURE":
+    case "ERROR":
       return {
         ...state,
         error: payload

@@ -5,7 +5,7 @@
   transition: 0.2s ease-in;
   &:hover {
     box-shadow: 2px 2px 25px 3px #c9c7c7;
-    transition: 0.2s ease-out;
+    transition: 0.1s ease-out;
   }
   .product-card-title {
     display: block;
@@ -18,17 +18,16 @@
     min-height: 250px;
     margin-bottom: 10px;
   }
-  .review {
-    text-align: right;
-    & span {
-      color: rgb(123, 164, 218);
-      font-size: 14px;
+  &_review {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    .review {
+      color: rgb(45, 146, 212);
     }
   }
-  .forsale {
-    margin-bottom: 10px;
-    font-size: 14px;
-  }
+
   .product-card-button {
     position: relative;
     width: 100%;
@@ -61,7 +60,6 @@
   &:hover .product-description {
     opacity: 1;
     z-index: 1;
-    transition: 0.1s ease-in;
   }
   .product-description {
     position: absolute;
@@ -71,31 +69,9 @@
     z-index: -1;
     margin-left: -10px;
     margin-right: -10px;
-
-    width: 100%;
     opacity: 0;
-    padding: 20px 10px 0;
-    transition: 0.2s ease-out;
-    & p {
-      position: relative;
-      padding-left: 15px;
-    }
-    & p::before {
-      content: "";
-      border: 1px solid red;
-      border-radius: 50%;
-      display: block;
-      height: 7px;
-      left: 0;
-      position: absolute;
-      top: 7px;
-      width: 7px;
-    }
   }
-  .product-description span {
-    font-size: 14px;
-    font-weight: bold;
-  }
+
   .hot-price {
     border-radius: 5px;
     padding: 5px 14px;
@@ -105,5 +81,19 @@
     position: absolute;
     left: 10px;
     top: 10px;
+  }
+}
+@keyframes cardShow {
+  0% {
+    background-color: red;
+  }
+  25% {
+    background-color: yellow;
+  }
+  50% {
+    background-color: blue;
+  }
+  100% {
+    background-color: green;
   }
 }

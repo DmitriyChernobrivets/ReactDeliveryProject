@@ -1,10 +1,10 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./forSale.scss";
 
 const ForSale = prop => {
   console.log(prop.forSale);
   return (
-    <Fragment>
+    <div className="forsale">
       {prop.forSale ? (
         <span className="forSale-text">
           <i className="fas fa-check" />
@@ -13,10 +13,10 @@ const ForSale = prop => {
       ) : (
         <span className="forSale-text">
           <i className="fas fa-times" />
-          Unavailable
+          Sold
         </span>
       )}
-    </Fragment>
+    </div>
   );
 };
 
