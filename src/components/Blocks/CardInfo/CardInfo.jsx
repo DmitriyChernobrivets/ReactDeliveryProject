@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import ForSale from "../../Shared/forSale/forSale";
 import RatingStars from "../../Shared/Stars/RatingStars";
 import Details from "../../Shared/Details/Details";
-import Feedback from "../Feedback/Feedback";
+import FeeadbackForm from "../Feedback/FeedbackFrom";
 
 class CardInfo extends Component {
   componentDidMount() {
@@ -17,7 +17,7 @@ class CardInfo extends Component {
 
   render() {
     const { product } = this.props.product;
-    console.log(product);
+
     return (
       product && (
         <Container>
@@ -68,7 +68,7 @@ class CardInfo extends Component {
             </Col>
           </Row>
           <Fragment>
-            <Feedback />
+            <FeeadbackForm id={product._id} />
           </Fragment>
         </Container>
       )

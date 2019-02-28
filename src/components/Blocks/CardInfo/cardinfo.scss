@@ -1,6 +1,10 @@
 .card-info {
   padding: 20px;
+  max-height: 260px;
   background-color: rgb(243, 241, 241);
+  &_image {
+    min-height: 400px;
+  }
 
   &_title {
     width: 100%;

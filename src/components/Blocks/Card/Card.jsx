@@ -9,7 +9,7 @@ import Details from "../../Shared/Details/Details";
 const Card = ({ product, match }) => {
   const { _id, description, title, forSale, images, price, hot, rating } = product;
   const { categories } = match.params;
-
+  console.log(match.params);
   return (
     <div className="product-card">
       {hot && (
@@ -28,7 +28,7 @@ const Card = ({ product, match }) => {
       <div className="product-card_review">
         <RatingStars rating={rating} />
 
-        <Link to="/" className="review">
+        <Link to={categories + "/" + _id} className="review">
           <span>Add review</span>
         </Link>
       </div>
